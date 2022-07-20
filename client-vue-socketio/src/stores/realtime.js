@@ -9,6 +9,14 @@ export const useSocketStore = defineStore({
   }),
   getters: {},
   actions: {
+    // Perhatikan untuk actions di sini
+    // Kita tetap harus menggunakan optional chaining (?.)
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining
+
+    // Karena socketObject belum tentu sudah mendapatkan socketio object
+    // Apabila tidak menggunakan optional chaining
+    // ada kemungkinan kode bisa menjadi error
+
     // mari kita mencoba emit socketObject
     async tryEmit() {
       this.socketObject?.emit("halodunia");
